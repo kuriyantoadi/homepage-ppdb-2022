@@ -1,0 +1,51 @@
+<?php
+include 'hub/conn.php';
+$pendaftar = mysqli_query($conn, "SELECT * FROM kelas");
+$jml_daftar = mysqli_num_rows($pendaftar);
+
+?>
+
+<!-- PENDAFTAR -->
+<section id="pendaftar">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="intro">
+                    <h1>JUMLAH PENDAFTAR TIAP KOMPETENSI KEAHLIAN</h1>
+                    <p class="mx-auto">Jumlah Pendaftaran Penerimaan Peserta Didik Baru (PPDB) Tahun 2022</p>
+                    <H1>TOTAL PENDAFTAR : <?= $jml_daftar ?> siswa</H1>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Kompetensi Keahlian</th>
+                            <th scope="col" class="text-center">Jumlah Pendaftar</th>
+                        </tr>
+                    </thead>
+                    <?php
+                    $no = 1;
+
+                    $pendaftar = mysqli_query($conn, "SELECT kelas,COUNT(*) AS total_pendaftar FROM kelas GROUP BY kelas");
+                    while ($b = mysqli_fetch_array($pendaftar)) {
+
+                    ?>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><?= $no++ ?></th>
+                                <td><?= $b['kelas'] ?></td>
+                                <td class="text-center"><?= $b['total_pendaftar'] ?></td>
+                            </tr>
+                        <?php
+                    }
+                        ?>
+                        <tr>
+                            <td colspan="2" class="table-active fw-bold text-center">Total Pendaftar</td>
+                            <td class="table-active fw-bold text-center"><?= $jml_daftar ?></td>
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

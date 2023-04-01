@@ -1,0 +1,134 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+ 
+ body {
+         background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/bg3.jpg);
+         font-family: sans-serif;
+         background-size: cover;
+     }
+     .main {
+         margin:auto 10%;
+         padding-top: 8%;
+         text-align: center;
+         color: #696969;
+     }
+
+     .main h4 {
+      font-size : 25px
+    }
+
+     img {
+         height: 90px;
+     }
+     h4 {
+         margin-bottom: 40px;
+         font-size: 30px;
+         color: #fff;
+     }
+
+     h5 {
+         margin-bottom: 40px;
+         font-size: 20px;
+         color: #fff;
+     }
+
+     #clock > div {
+         border-radius: 5px;
+         background: #00FFFF;
+         padding: 30px 30px 10px 30px;
+         color: black;
+         display: inline-block;
+     }
+     #clock > div > p {
+         font-size: 16px;
+     }
+     #days, #hours, #minutes, #seconds {
+         padding: 10px;
+         font-size: 30px;
+         background: #fb8e00;
+         display: inline-block;
+         font-weight: bold;
+     }
+     span.turn {
+         animation: turn 0.7s ease;
+     }
+
+     
+
+ 
+
+/*---------------Awal kode css tombol---------------*/
+.button-container {
+  text-align: center;
+}
+.button {
+  position: relative;
+  background: currentColor;
+  border: 1px solid currentColor;
+  font-size: 1.1rem;
+  color: #00FFFF;
+  margin: 3rem 0;
+  padding: 0.75rem 3rem;
+  cursor: pointer;
+  -webkit-transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
+  transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
+  overflow: hidden;
+  border-radius: 25px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.button span {
+  color: black;
+  position: relative;
+  z-index: 1;
+}
+.button::before {
+  content: '';
+  position: absolute;
+  background: #071017;
+  border: 50vh solid #1d4567;
+  width: 30vh;
+  height: 30vh;
+  border-radius: 50%;
+  display: block;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  opacity: 1;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+}
+.button:hover {
+  color: #D81900;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+}
+.button:active::before, .button:focus::before {
+  -webkit-transition: opacity 0.28s ease 0.364s, -webkit-transform 1.12s ease;
+  transition: opacity 0.28s ease 0.364s, -webkit-transform 1.12s ease;
+  transition: transform 1.12s ease, opacity 0.28s ease 0.364s;
+  transition: transform 1.12s ease, opacity 0.28s ease 0.364s, -webkit-transform 1.12s ease;
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+}
+.button:focus {
+  outline: none;
+}
+
+
+     @keyframes turn {
+         0% {transform: rotateX(0deg)}
+         100% {transform: rotateX(360deg)}
+     }
+
+
+/* REsponsive */
+
+ @media (max-width: 575.98px) {
+    #clock > div {
+        padding: 5px 5px 5px 5px;
+    }
+
+    #days, #hours, #minutes, #seconds {
+        margin-top: 20px;
+    }
+
+  }
